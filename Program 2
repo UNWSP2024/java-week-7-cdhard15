@@ -1,0 +1,57 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main
+{
+    static Scanner userInput = new Scanner(System.in);
+    public static void main(String[] args)
+    {
+        System.out.println("Please enter a number between 1 and 20: ");
+        int valuesLen = userInput.nextInt();
+        int[] values;
+        int i = 0;
+        values = new int[valuesLen];
+
+
+        for (int j = 0; j< values.length; j++)
+        {
+            System.out.println("Enter value " + (j +1));
+            values[j] = userInput.nextInt();
+        }
+        while (i < valuesLen)
+        {
+            System.out.println("Value " + (i+1) + " = " + values[i] + ", would you like to change it? y or n");
+            String edit = userInput.next();
+            if (edit.equals("y"))
+            {
+                System.out.println("Enter new value: ");
+                int newValue = userInput.nextInt();
+                values[i] = newValue;
+            }
+            i++;
+        }
+        Arrays.sort(values, 0, valuesLen);
+        System.out.println("The updated and sorted values are: " + Arrays.toString(values));
+    }
+}
+
+OUTPUT
+Please enter a number between 1 and 20: 
+3
+Enter value 1
+12
+Enter value 2
+2
+Enter value 3
+66
+Value 1 = 12, would you like to change it? y or n
+n
+Value 2 = 2, would you like to change it? y or n
+y
+Enter new value: 
+43
+Value 3 = 66, would you like to change it? y or n
+y
+Enter new value: 
+37
+The updated and sorted values are: [12, 37, 43]
